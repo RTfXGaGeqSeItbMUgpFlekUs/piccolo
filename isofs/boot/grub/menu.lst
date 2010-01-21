@@ -1,0 +1,4 @@
+default 1
+timeout 3
+title Piccolo
+kernel /System/piccolo
