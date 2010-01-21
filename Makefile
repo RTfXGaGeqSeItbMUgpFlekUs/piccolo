@@ -1,4 +1,4 @@
-SRCS= src/kmain.c src/kprint.c src/video.c
+SRCS= src/boot.s src/kmain.c src/kprint.c src/video.c
 SOBJS= $(SRCS:.s=.o)
 OBJS= $(SOBJS:.c=.o)
 
