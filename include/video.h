@@ -1,7 +1,9 @@
 #ifndef VIDEO_H
 #define VIDEO_H
 
-static volatile char *video=(volatile char*)0xB8000;
+#define VGA (volatile char*)0xB800
+
+void InitScreen(int colour);
 void ClearScreen(int colour);
 
 #endif

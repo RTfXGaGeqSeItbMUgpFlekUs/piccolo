@@ -3,11 +3,12 @@
 
 void kprint(int colour, const char *string)
 {
+	volatile char *ptr = VGA;
 	while(*string != 0) {
-		*video=*string;
+		*ptr=*string;
 		string++;
-		video++;
-		*video=colour;
-		video++;
+		ptr++;
+		*ptr=colour;
+		ptr++;
 	}
 }

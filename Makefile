@@ -8,14 +8,14 @@ CCARGS=-Wall -Wextra -nostdlib -nostartfiles -nodefaultlibs -Iinclude
 all: piccolo
 
 piccolo: $(OBJS)
-	ld -melf_i386 -Ttext 0x100000 -o piccolo $(OBJS)
+	ld -melf_i386 -nostdlib -T src/link.ld -o piccolo $(OBJS)
 	(./makeiso.sh)
 
 .s.o:
-	nasm -felf -o $@ $<
+	nasm -felf32 -o $@ $<
 
 .c.o:
-	$(CC) -o $@ -c $< $(CCARGS)
+	$(CC) -m32 -o $@ -c $< $(CCARGS)
 
 clean:
 	-rm src/*.o piccolo piccolo.iso

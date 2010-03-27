@@ -3,7 +3,7 @@
 void ClearScreen(int colour)
 {
 	int i;
-	volatile char *ptr = (volatile char*)video;
+	volatile char *ptr = VGA;
 
 	for ( i = 0; i < 80*25; ++i ) {
 		ptr++;
