@@ -5,11 +5,13 @@
 void kmain(void* mbd, unsigned int magic)
 {
 	mbd = mbd; // Just to make gcc stop whining
+
+	DisplayInit();
+
 	if (magic != 0x2BADB002) {
-		kprint(0x07, "ERROR!");
+		DisplayString("ERROR!");
 	}
-   
-	ClearScreen(0);
-	kprint(0x07, "Test");
+
+	DisplayString("Test");
 }
 

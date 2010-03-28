@@ -2,6 +2,6 @@
 #define PICCOLO_H
 
 /* Function Prototypes */
-void kprint(int, const char *string);
+void puts(int, const char *string);
 
 #endif

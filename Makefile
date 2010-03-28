@@ -1,9 +1,9 @@
-SRCS= src/boot.s src/kmain.c src/kprint.c src/video.c
+SRCS= src/boot.s src/kmain.c src/video.c
 SOBJS= $(SRCS:.s=.o)
 OBJS= $(SOBJS:.c=.o)
 
 CC=gcc
-CCARGS=-Wall -Wextra -nostdlib -nostartfiles -nodefaultlibs -Iinclude
+CCARGS=-Wall -Wextra -nostdlib -nostartfiles -nodefaultlibs -fno-builtin -Iinclude
 
 all: piccolo
 

@@ -1,9 +1,16 @@
 #ifndef VIDEO_H
 #define VIDEO_H
 
-#define VGA (volatile char*)0xB800
+#include <stdint.h>
 
-void InitScreen(int colour);
-void ClearScreen(int colour);
+void DisplaySetAttr(uint8_t lattr);
+void DisplayClear(void);
+static void DisplayScroll(void);
+void DisplayChar(char c);
+void DisplayString(char *str);
+void DisplaySpot(uint8_t s, uint8_t row, uint8_t col);
+void DisplayHideCursor(void);
+void DisplayCursorPosition(int _row, int _col);
+void DisplayInit(void);
 
 #endif
