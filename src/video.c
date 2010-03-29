@@ -1,3 +1,4 @@
+#include <piccolo.h>
 #include <video.h>
 
 #define COLS (80)
@@ -86,8 +87,8 @@ void DisplaySpot(uint8_t s, uint8_t row, uint8_t col)
 
 void DisplayHideCursor(void)
 {
-	//HalOutPort(0x3d4, 0x0a);
-	//HalOutPort(0x3d5, 1 << 5);
+	OutPort(0x3d4, 0x0a);
+	OutPort(0x3d5, 1 << 5);
 }
 
 void DisplayCursorPosition(int _row, int _col)
