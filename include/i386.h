@@ -57,7 +57,7 @@ typedef struct IDTG {
 #define IDT_TRAP32 0xf
 
 void InitIDT(void);
-void SetIDTGate(IN size_t n, IN uint32_t offset, IN uint16_t selector, IN uint8_t priv, IN uint8_t sys, IN uint8_t gatetype);
+void SetIDTGate(size_t n, uint32_t offset, uint16_t selector, uint8_t priv, uint8_t sys, uint8_t gatetype);
 
 /* Ports */
 void OutPort(uint16_t port, uint8_t val);
@@ -67,7 +67,7 @@ uint16_t InPortWord(uint16_t port);
 void OutPortLong(uint16_t port, uint32_t val);
 uint32_t InPortLong(uint16_t port);
 
-static inline void IOWait(void);
+inline void IOWait(void);
 
 /* Interrupts */
 void DisableInterrupts(void);

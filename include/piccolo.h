@@ -5,4 +5,6 @@
 #include <stdint.h>
 #include <video.h>
 
+#include <i386.h>
+
 #endif
