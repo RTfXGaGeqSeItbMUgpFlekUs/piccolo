@@ -5,7 +5,7 @@
 
 void DisplaySetAttr(uint8_t lattr);
 void DisplayClear(void);
-static void DisplayScroll(void);
+void DisplayScroll(void);
 void DisplayChar(char c);
 void DisplayString(char *str);
 void DisplaySpot(uint8_t s, uint8_t row, uint8_t col);

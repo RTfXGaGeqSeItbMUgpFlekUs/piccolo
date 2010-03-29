@@ -9,8 +9,6 @@
 #define PUTSPOT(n) VideoMemory[row*COLS + col] = SPOT(n);
 
 static uint16_t *VideoMemory;
-
-static uint8_t disp_init = 0;
 static uint8_t attr;
 static uint8_t col;
 static uint8_t row;
@@ -30,7 +28,7 @@ void DisplayClear(void)
 		VideoMemory[i] = CLEAR;
 }
 
-static void DisplayScroll(void)
+void DisplayScroll(void)
 {
 	int i;
 	if (row >= ROWS) {
@@ -86,7 +84,7 @@ void DisplaySpot(uint8_t s, uint8_t row, uint8_t col)
 	col++;
 }
 
-void DisplayHideCursor()
+void DisplayHideCursor(void)
 {
 	//HalOutPort(0x3d4, 0x0a);
 	//HalOutPort(0x3d5, 1 << 5);
@@ -106,18 +104,7 @@ void DisplayInit(void)
 	attr = 0x1f;
 	escape = 0;
 	escape_attr = 0;
-	disp_init = 1;
 	DisplayHideCursor();
 	DisplayClear();
-}
-
-void DisableDisplay(void)
-{
-	disp_init = 0;
-}
-
-int IsDisplayOn(void)
-{
-	return (int) disp_init ? 1 : 0;
 }
 
