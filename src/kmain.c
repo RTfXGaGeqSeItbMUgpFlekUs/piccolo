@@ -7,7 +7,7 @@ void kmain(void* mbd, unsigned int magic)
 	DisplayInit();
 
 	if (magic != 0x2BADB002) {
-		DisplayString("ERROR!");
+		DisplayString("ERROR!\n");
 	}
 
 	DisplayString("Test");
