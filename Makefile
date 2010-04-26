@@ -1,8 +1,9 @@
+include config.mk
+
 SRCS= src/boot.s src/kmain.c src/ports.c src/video.c
 SOBJS= $(SRCS:.s=.o)
 OBJS= $(SOBJS:.c=.o)
 
-CC=gcc
 CCARGS=-Wall -Wextra -nostdlib -nostartfiles -nodefaultlibs -fno-builtin -Iinclude
 
 all: piccolo
@@ -12,7 +13,7 @@ piccolo: $(OBJS)
 	(./makeiso.sh)
 
 .s.o:
-	nasm -felf32 -o $@ $<
+	$(AS) -felf32 -o $@ $<
 
 .c.o:
 	$(CC) -m32 -o $@ -c $< $(CCARGS)
