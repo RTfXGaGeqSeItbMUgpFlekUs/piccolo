@@ -9,7 +9,7 @@ CCARGS=-Wall -Wextra -nostdlib -nostartfiles -nodefaultlibs -fno-builtin -Iinclu
 all: piccolo
 
 piccolo: $(OBJS)
-	ld -melf_i386 -nostdlib -T src/link.ld -o piccolo $(OBJS)
+	$(LD) -melf_i386 -nostdlib -T src/link.ld -o piccolo $(OBJS)
 	(./makeiso.sh)
 
 .s.o:
