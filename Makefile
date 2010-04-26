@@ -6,11 +6,13 @@ OBJS= $(SOBJS:.c=.o)
 
 CCARGS=-Wall -Wextra -nostdlib -nostartfiles -nodefaultlibs -fno-builtin -Iinclude
 
-all: piccolo
+all: piccolo.iso
+
+piccolo.iso: piccolo
+	(./makeiso.sh)
 
 piccolo: $(OBJS)
 	$(LD) -melf_i386 -nostdlib -T src/link.ld -o piccolo $(OBJS)
-	(./makeiso.sh)
 
 .s.o:
 	$(AS) -felf32 -o $@ $<
